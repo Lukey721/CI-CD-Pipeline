@@ -1,0 +1,24 @@
+<%# This is the home page where user will enter value and get a answer%>
+<h1>Blood Pressure Calculator</h1>
+
+<%= form_with url: root_path, method: :post, local: true, data: { turbo: false } do %>
+  <div>
+    <%= label_tag :systolic, "Systolic (top number)" %>
+    <%= number_field_tag :systolic %>
+  </div>
+
+  <div>
+    <%= label_tag :diastolic, "Diastolic (bottom number)" %>
+    
+    <%= number_field_tag :diastolic %>
+  </div>
+
+  <div>
+    <%= submit_tag "Calculate" %>
+  </div>
+<% end %>
+
+<% if @category.present? %>
+  <h2>Your Blood Pressure Result:</h2>
+  <p><strong><%= @category %></strong></p>
+<% end %>
