@@ -7,6 +7,7 @@ require 'rails_helper'
 #4.Low blood pressure
 #5.Errors
 #6.Edge cases
+#7.Answer with a text rather than number
 
 RSpec.describe BloodPressureCalculatorController, type: :controller do
   describe 'POST #new' do
@@ -52,7 +53,7 @@ RSpec.describe BloodPressureCalculatorController, type: :controller do
       puts "Test 6 - High Blood Pressure: Result from test is #{assigns(:category)}"
     end
 
-    it 'Check there is a error message when invalued answers added' do
+    it 'Check there is a error message if text is added' do
       post :new, params: { systolic: 69, diastolic: "VTN" }
       expect(response).to be_successful
       expect(assigns(:error_message)).to eq("Please review the measurements you have entered, The Valid Values are: Systolic (70-190), Diastolic (40-100).")
