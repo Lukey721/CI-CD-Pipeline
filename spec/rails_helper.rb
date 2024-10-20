@@ -5,9 +5,21 @@ require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
+require 'simplecov'
+SimpleCov.start 'rails' do
+  add_filter '/spec/'  # Exclude the test files from coverage calculation
+  add_filter '/config/'
+  add_filter '/vendor/'
+  add_filter '/app/models/'    # Exclude models
+  add_filter '/app/views/'     # Exclude views
+  add_group 'Controllers', 'app/controllers' # Focus only on controllers
+end
 # Add additional requires below this line. Rails is not loaded until this point!
+
 require 'rails-controller-testing'
 Rails::Controller::Testing.install
+
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end

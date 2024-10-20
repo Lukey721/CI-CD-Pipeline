@@ -51,5 +51,12 @@ RSpec.describe BloodPressureCalculatorController, type: :controller do
       expect(assigns(:category)).to eq("High blood pressure")
       puts "Test 6 - High Blood Pressure: Result from test is #{assigns(:category)}"
     end
+
+    it 'Check there is a error message when invalued answers added' do
+      post :new, params: { systolic: 69, diastolic: "VTN" }
+      expect(response).to be_successful
+      expect(assigns(:error_message)).to eq("Please review the measurements you have entered, The Valid Values are: Systolic (70-190), Diastolic (40-100).")
+      puts "Test 7 - Error Message: Result from test is #{assigns(:error_message)}"
+    end
   end
 end

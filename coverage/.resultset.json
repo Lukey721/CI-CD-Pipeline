@@ -1,0 +1,117 @@
+{
+  "RSpec": {
+    "coverage": {
+      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Ruby/blood_pressure_calculator/app/controllers/blood_pressure_calculator_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          7,
+          7,
+          7,
+          null,
+          7,
+          null,
+          5,
+          null,
+          null,
+          2,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          7,
+          null,
+          null,
+          1,
+          5,
+          1,
+          4,
+          1,
+          3,
+          1,
+          null,
+          2,
+          null,
+          null,
+          null
+        ]
+      },
+      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Ruby/blood_pressure_calculator/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null,
+          null
+        ]
+      },
+      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Ruby/blood_pressure_calculator/app/channels/application_cable/channel.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Ruby/blood_pressure_calculator/app/channels/application_cable/connection.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Ruby/blood_pressure_calculator/app/helpers/application_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Ruby/blood_pressure_calculator/app/helpers/blood_pressure_calculator_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Ruby/blood_pressure_calculator/app/jobs/application_job.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Ruby/blood_pressure_calculator/app/mailers/application_mailer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      }
+    },
+    "timestamp": 1729421405
+  }
+}
