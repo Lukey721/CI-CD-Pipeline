@@ -51,67 +51,8 @@
           null,
           null
         ]
-      },
-      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Ruby/blood_pressure_calculator/app/channels/application_cable/channel.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Ruby/blood_pressure_calculator/app/channels/application_cable/connection.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Ruby/blood_pressure_calculator/app/helpers/application_helper.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Ruby/blood_pressure_calculator/app/helpers/blood_pressure_calculator_helper.rb": {
-        "lines": [
-          0,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Ruby/blood_pressure_calculator/app/jobs/application_job.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
-      },
-      "C:/Users/lukey/OneDrive - Technological University Dublin/Code/College Projects/Blood Pressure Ruby/blood_pressure_calculator/app/mailers/application_mailer.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {
-        }
       }
     },
-    "timestamp": 1729421405
+    "timestamp": 1729445028
   }
 }
