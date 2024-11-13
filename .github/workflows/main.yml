@@ -3,7 +3,7 @@ name: Azure CI/CD
 on:
   push:
     branches:
-      - master  
+      - master  # or the branch you are using for production deployment
 
 jobs:
   build-and-deploy:
@@ -16,19 +16,19 @@ jobs:
     - name: Log in to Azure
       uses: azure/login@v1
       with:
-       creds: ${{ secrets.AZURE_CREDENTIALS }}
-      
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2 
 
     - name: Build and push Docker image to registry
       run: |
-        docker build -t ${{ secrets.REGISTRY_NAME }}/${{ secrets.APP_NAME }}:latest .
-        echo ${{ secrets.REGISTRY_PASSWORD }} | docker login ${{ secrets.REGISTRY_NAME }} -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
-        docker push ${{ secrets.REGISTRY_NAME }}/${{ secrets.APP_NAME }}:latest
+        docker build -t lukey721containerregistry.azurecr.io/app:latest .
+        echo ${{ secrets.REGISTRY_PASSWORD }} | docker login lukey721containerregistry.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+        docker push lukey721containerregistry.azurecr.io/app:latest
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ${{ secrets.APP_NAME }}
-        images: ${{ secrets.REGISTRY_NAME }}/${{ secrets.APP_NAME }}:latest  # Image location in registry
+        app-name: BloodPressureCalculator  # Azure App Service name
+        images: lukey721containerregistry.azurecr.io/app:latest  # Docker image location in your registry
