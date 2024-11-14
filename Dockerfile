@@ -16,7 +16,7 @@ RUN bundle install
 COPY . .
 
 # Expose the port
-EXPOSE 3000
+EXPOSE 8081
 
 #run app
-CMD ["rails", "server", "-b", "0.0.0.0", "-p", "3000"]
+CMD ["rails", "server", "-b", "0.0.0.0", "-p", "8081"]
