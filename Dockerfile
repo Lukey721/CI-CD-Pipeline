@@ -19,4 +19,4 @@ COPY . .
 EXPOSE 8081
 
 #run app
-CMD ["rails", "server", "-b", "0.0.0.0", "-p", "8081"]
+CMD ["rails", "server", "-b", "0.0.0.0", "-p", "$PORT"]
