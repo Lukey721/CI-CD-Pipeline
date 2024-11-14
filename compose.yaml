@@ -3,8 +3,8 @@ version: '3.8'
 services:
   web:
     build: .
-    command: bundle exec rails server -b 0.0.0.0 -p 3000
+    command: bundle exec rails server -b 0.0.0.0 -p $PORT  # Use dynamic port
     volumes:
       - .:/app
-    ports:
-      - "3000:3000"  # Map local port 8080 to container's 8081
+    environment:
+      - PORT=$PORT  # Set the PORT variable if necessary

@@ -18,5 +18,5 @@ COPY . .
 # Expose the port
 EXPOSE 8080
 
-#run app
+# Run the Rails server (using the dynamically set $PORT variable)
 CMD ["rails", "server", "-b", "0.0.0.0", "-p", "$PORT"]
