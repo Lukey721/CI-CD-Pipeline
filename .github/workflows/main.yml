@@ -3,7 +3,7 @@ name: Azure CI/CD
 on:
   push:
     branches:
-      - master 
+      - development 
 
 jobs:
   build-and-deploy:
@@ -23,12 +23,12 @@ jobs:
 
     - name: Build and push Docker image to registry
       run: |
-        docker build -t lukecontainers.azurecr.io/blood-pressure-app:latest .
-        echo ${{ secrets.REGISTRY_PASSWORD }} | docker login lukecontainers.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
-        docker push lukecontainers.azurecr.io/blood-pressure-app:latest
+        docker build -t ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest .
+        echo ${{ secrets.REGISTRY_PASSWORD }} | docker login ${{ secrets.REGISTRY_USERNAME }}.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+        docker push ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
-        app-name: BloodPressureCICD  # this is now updated
-        images: lukecontainers.azurecr.io/blood-pressure-app:latest  # Docker image location in  registry
+        app-name: ${{ secrets.AZURE_APP_NAME }}  # this is now updated
+        images: ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest  # Docker image location in  registry
