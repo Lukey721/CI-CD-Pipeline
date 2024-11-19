@@ -23,12 +23,12 @@ jobs:
 
     - name: Build and push Docker image to registry
       run: |
-        docker build -t lukey721containerregistry.azurecr.io/app:latest .
-        echo ${{ secrets.REGISTRY_PASSWORD }} | docker login lukey721containerregistry.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
-        docker push lukey721containerregistry.azurecr.io/app:latest
+        docker build -t lukecontainers.azurecr.io/blood-pressure-app:latest .
+        echo ${{ secrets.REGISTRY_PASSWORD }} | docker login lukecontainers.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+        docker push lukecontainers.azurecr.io/blood-pressure-app:latest
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
-        app-name: bloodpressurecalculator1  # this is now updated
-        images: lukey721containerregistry.azurecr.io/app:latest  # Docker image location in your registry
+        app-name: BloodPressureCICD  # this is now updated
+        images: lukecontainers.azurecr.io/blood-pressure-app:latest  # Docker image location in  registry
