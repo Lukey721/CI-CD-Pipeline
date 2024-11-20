@@ -1,0 +1,37 @@
+#this is a secondary deploy to azure web app for demenstation purposes
+#this will be the mock production env 
+#will only build and deploy when code is pushed to the master(production) branch
+name: Azure CI/CD to Production
+
+on:
+  push:
+    branches:
+      - master 
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3 
+
+    - name: Log in to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2 
+
+    - name: Build and push Docker image to registry
+      run: |
+        docker build -t ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest .
+        echo ${{ secrets.REGISTRY_PASSWORD }} | docker login ${{ secrets.REGISTRY_USERNAME }}.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
+        docker push ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest
+
+    - name: Deploy to Azure Web App
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ secrets.AZURE_APP_NAME_SECOND_DEPLOY }}  # this is now updated
+        images: ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest  # Docker image location in  registry
