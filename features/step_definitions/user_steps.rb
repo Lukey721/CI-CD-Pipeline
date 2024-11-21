@@ -16,7 +16,7 @@ end
 
 #pre-high blood pressure BDD test
 When('I fill in the blood pressure form with valid details to calculate pre-high blood pressure') do
-  fill_in 'systolic', with: '150' 
+  fill_in 'systolic', with: '130' 
   fill_in 'diastolic', with: '85'
 end
 
