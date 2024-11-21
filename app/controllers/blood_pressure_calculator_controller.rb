@@ -31,7 +31,7 @@ class BloodPressureCalculatorController < ApplicationController
       "Low blood pressure"
     elsif systolic.between?(90, 120) && diastolic.between?(60, 80)
       "Ideal blood pressure"
-    elsif systolic.between?(120, 139) || diastolic.between?(80, 89)
+    elsif systolic.between?(120, 139) && diastolic.between?(80, 89)
       "Pre-high blood pressure"
     else
       "High blood pressure"
