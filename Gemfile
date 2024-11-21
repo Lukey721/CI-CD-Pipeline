@@ -60,7 +60,8 @@ group :development do
   # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  gem "spring"
+  gem 'spring-watcher-listen'
 
 end
 
@@ -70,5 +71,8 @@ group :test do
   gem "selenium-webdriver"
   gem 'simplecov', require: false
   gem 'rails-controller-testing', '~> 1.0'
+  #for bdd testing
+  gem 'cucumber-rails', require: false 
+  gem 'database_cleaner-active_record'
 end
 

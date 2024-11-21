@@ -1,4 +1,4 @@
-name: Azure CI/CD
+name: Azure CI/CD to Staging/Development
 
 on:
   push:
