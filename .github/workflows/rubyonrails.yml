@@ -29,10 +29,14 @@ jobs:
         ruby-version: 3.2.2 # Specify the Ruby version you're using
         bundler-cache: true # Enable bundler caching for faster builds
 
-    - name: Fix script permissions
-      run: chmod +x bin/*
+    - name: Verify Ruby Version and Permissions
+      run: |
+        ruby -v
+        chmod +x bin/*
 
     - name: Install dependencies
+      env:
+        RAILS_ENV: test
       run: |
         bundle install --jobs 4 --retry 3
       #simplecov will run under this also 
