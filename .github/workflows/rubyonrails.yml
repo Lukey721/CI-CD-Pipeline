@@ -31,8 +31,8 @@ jobs:
 
     - name: Verify Ruby Version and Permissions
       run: |
-        ruby -v
         chmod +x bin/*
+        sed -i 's/ruby.exe/ruby/' bin/*
 
     - name: Install dependencies
       env:
@@ -41,6 +41,8 @@ jobs:
         bundle install --jobs 4 --retry 3
       #simplecov will run under this also 
     - name: Run RSpec tests
+      env:
+        RAILS_ENV: test
       run: |
         bundle exec rspec
 
