@@ -51,7 +51,7 @@ jobs:
         RAILS_ENV: test
       run: bin/rails cucumber  
 
-    #- name: Run RuboCop
-    #  env:
-    #    RAILS_ENV: test
-    #  run: bundle exec rubocop
+    - name: Run RuboCop
+      env:
+        RAILS_ENV: test
+      run: bundle exec rubocop --fail-level=error # only show errors
