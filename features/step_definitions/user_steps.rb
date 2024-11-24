@@ -1,28 +1,30 @@
+# frozen_string_literal: true
+
 Given('I am on the calculator page') do
   visit root_path
 end
 
-#ideal blood pressure BDD test
+# ideal blood pressure BDD test
 When('I fill in the blood pressure form with valid details') do
   fill_in 'systolic', with: '120'
   fill_in 'diastolic', with: '80'
 end
 
-#Invalid BDD test
+# Invalid BDD test
 When('I fill in the blood pressure form with invalid details') do
-  fill_in 'systolic', with: '2000'  # Invalid input
+  fill_in 'systolic', with: '2000' # Invalid input
   fill_in 'diastolic', with: '3'
 end
 
-#pre-high blood pressure BDD test
+# pre-high blood pressure BDD test
 When('I fill in the blood pressure form with valid details to calculate pre-high blood pressure') do
-  fill_in 'systolic', with: '130' 
+  fill_in 'systolic', with: '130'
   fill_in 'diastolic', with: '85'
 end
 
-#high blood pressure BDD test
+# high blood pressure BDD test
 When('I fill in the blood pressure form with valid details to calculate high blood pressure') do
-  fill_in 'systolic', with: '141' 
+  fill_in 'systolic', with: '141'
   fill_in 'diastolic', with: '91'
 end
 
