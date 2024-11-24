@@ -76,6 +76,7 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner-active_record'
   gem 'rubocop'
+  gem 'rubocop-performance', '~> 1.23'
+  gem 'rubocop-rake'
 end
 
-gem 'rubocop-performance', '~> 1.23'
