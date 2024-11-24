@@ -19,8 +19,8 @@ RUN bundle install --without development test
 COPY . ./
 
 # Set environment variables (adjust RAILS_MASTER_KEY if necessary)
-ENV RAILS_SECRET_KEY_BASE=75e44075db00f5edff48e22eac2930ca6f802b3c3429e277fbbe33840eed1aed58886fea6be4daba78f5a63b2ad4e06042815e6b05b396311cd3cd67a5392f34
-ENV RAILS_MASTER_KEY=39887745612faa284de06bfab65c518e
+ENV RAILS_SECRET_KEY_BASE=${RAILS_SECRET_KEY_BASE}
+ENV RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
 
 # Set environment variable for Rails environment
 ENV RAILS_ENV=production

@@ -52,6 +52,10 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug'
   gem 'rspec-rails', '~> 6.0'
+  gem 'rubocop', require: false
+  gem 'rubocop-discourse', require: false
+  gem 'rubocop-performance', '~> 1.23'
+  gem 'rubocop-rake', require: false
   gem 'rubocop-rspec', require: false
 end
 
@@ -77,8 +81,4 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner-active_record'
   gem 'panolint'
-  gem 'rubocop'
-  gem 'rubocop-discourse'
-  gem 'rubocop-performance', '~> 1.23'
-  gem 'rubocop-rake'
 end
