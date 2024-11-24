@@ -78,6 +78,7 @@ group :test do
   gem 'database_cleaner-active_record'
   gem 'panolint'
   gem 'rubocop'
+  gem 'rubocop-discourse'
   gem 'rubocop-performance', '~> 1.23'
   gem 'rubocop-rake'
 end
