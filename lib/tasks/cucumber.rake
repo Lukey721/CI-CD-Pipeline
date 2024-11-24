@@ -37,6 +37,7 @@ unless ARGV.any? { |a| a =~ /^gems/ } # Don't load anything when running the gem
       desc 'Run all features'
       task all: %i[ok wip]
 
+      desc 'Set up the Cucumber environment'
       task :statsetup do
         require 'rails/code_statistics'
         STATS_DIRECTORIES << ['Cucumber features', 'features'] if File.exist?('features')
@@ -49,14 +50,18 @@ unless ARGV.any? { |a| a =~ /^gems/ } # Don't load anything when running the gem
 
     task default: :cucumber
 
+    desc 'Run the Cucumber tests'
     task features: :cucumber do
       warn "*** The 'features' task is deprecated. See rake -T cucumber ***"
     end
 
     # In case we don't have the generic Rails test:prepare hook, append a no-op task that we can depend upon.
+    desc 'Prepare the test environment'
     task 'test:prepare' do
+      # Preparation tasks go here, if any. Leave empty for now.
     end
 
+    desc 'Generate Cucumber stats'
     task stats: 'cucumber:statsetup'
   rescue LoadError
     desc 'cucumber rake task not available (cucumber not installed)'
