@@ -289,6 +289,8 @@ GEM
       rubocop-ast (>= 1.31.1, < 2.0)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
+    rubocop-rspec (3.2.0)
+      rubocop (~> 1.61)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
     selenium-webdriver (4.25.0)
@@ -365,6 +367,7 @@ DEPENDENCIES
   rubocop
   rubocop-performance (~> 1.23)
   rubocop-rake
+  rubocop-rspec
   selenium-webdriver
   simplecov
   spring
