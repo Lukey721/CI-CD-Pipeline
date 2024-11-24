@@ -65,7 +65,7 @@ unless ARGV.any? { |a| a =~ /^gems/ } # Don't load anything when running the gem
     task stats: 'cucumber:statsetup'
   rescue LoadError
     desc 'cucumber rake task not available (cucumber not installed)'
-    task :cucumber do
+    task :cucumber do # rubocop:disable Rake/DuplicateTask
       abort 'Cucumber rake task is not available. Be sure to install cucumber as a gem or plugin'
     end
   end
