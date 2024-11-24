@@ -29,10 +29,6 @@ jobs:
         ruby-version: 3.2.2 # Specify the Ruby version you're using
         bundler-cache: true # Enable bundler caching for faster builds
 
-    - name: Increase stack size (ulimit)
-      run: |
-        ulimit -s 65550 # Increases the stack size limit to avoid recursion issues
-
     - name: Verify Ruby Version and Permissions
       run: |
         chmod +x bin/*
