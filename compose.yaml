@@ -8,8 +8,8 @@ services:
       - .:/app  # Mount the current directory to the container (useful for live updates, you may want to adjust for production)
     environment:
       - RAILS_ENV=production  # Set environment to production
-      - RAILS_MASTER_KEY=39887745612faa284de06bfab65c518e  # Master key for Rails secrets (use an environment variable or secret manager in a real prod setup)
-      - SECRET_KEY_BASE=j4wLS0lwS+0FYdm4OZ7pS0NMVyG2MHPX4YDAkJZ5qSb2BhBdi0X0i4EMmfJrlcQPcjVO96dowOD0spmG9+gQnm6M/DzBs5/MDZl2NPlh/nsoPwGq2M1sJ/F8TleR3OVdP2+7Lmse0LNoU3DLiP3SZrWVYQhnrzISDjp40JlfXUCZXcVs1px9C1jCiP1vab0xLi8Glf6LIqjMEEgktzUV8rocugHkB1KwpY+I+M4PaUDAp/yKseKiAy+IkRNWqlw5LyQxwo0V5e5mjMI5R4L09LCh0lTUr2T4nZoOHI06f9+MYDCsz9DfzcuyVAw2o0B+DRBwL70/xf4wVC80dH/TJOiQuWJY4rH+tugxdaGe1XAMKJbdgCJ5oJm5O3V7+FJ8lkRnm7wz043+lKZIgQpMSy5aOy0m--zzGR/5EtR2g8LqKZ--S9kCqX3pP9tppPwvVc2cSw==  # You can generate this with `rails secret`
-      - PORT=3000
+    secrets:
+      - rails_master_key=39887745612faa284de06bfab65c518e  # Master key for Rails secrets (use an environment variable or secret manager in a real prod setup)
+      - rails_secret_key_base=75e44075db00f5edff48e22eac2930ca6f802b3c3429e277fbbe33840eed1aed58886fea6be4daba78f5a63b2ad4e06042815e6b05b396311cd3cd67a5392f34
     ports:
       - "3000:3000"  # Map container port 3000 to host port 3000
