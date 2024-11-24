@@ -1,0 +1,8 @@
+inherit_from: .rubocop_todo.yml
+AllCops:
+  TargetRubyVersion: 3.2.2
+  Exclude:
+    - 'db/schema.rb'
+
+Layout/LineLength:
+  Max: 200

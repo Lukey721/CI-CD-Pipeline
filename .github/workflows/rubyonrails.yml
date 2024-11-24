@@ -50,3 +50,8 @@ jobs:
       env:
         RAILS_ENV: test
       run: bin/rails cucumber  
+
+    - name: Run RuboCop
+      env:
+        RAILS_ENV: test
+      run: bundle exec rubocop
