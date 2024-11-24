@@ -77,3 +77,5 @@ group :test do
   gem 'database_cleaner-active_record'
   gem 'rubocop'
 end
+
+gem 'rubocop-performance', '~> 1.23'
