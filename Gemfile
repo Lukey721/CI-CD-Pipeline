@@ -50,6 +50,7 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'bundler-audit'
   gem 'debug'
   gem 'rspec-rails', '~> 6.0'
   gem 'rubocop', require: false

@@ -55,3 +55,6 @@ jobs:
       env:
         RAILS_ENV: test
       run: bundle exec rubocop --fail-level=error # only show errors
+
+    - name: Run Dependency Vulnerability Scanning
+      run: bundler-audit check --update 
