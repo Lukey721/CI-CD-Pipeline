@@ -57,4 +57,4 @@ jobs:
       run: bundle exec rubocop --fail-level=error # only show errors
 
     - name: Run Dependency Vulnerability Scanning
-      run: bundler-audit check --update 
+      run: bundle exec bundler-audit check --update
