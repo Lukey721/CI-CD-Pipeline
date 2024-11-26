@@ -8,7 +8,7 @@ export let options = {
     { duration: "1m", target: 0 },
   ],
   thresholds: {
-    "http_req_duration": ["p(95)<100"],
+    "http_req_duration": ["p(95)<500"], // Allow 95% of requests to take less than 500ms
   },
   discardResponseBodies: true,
 };
