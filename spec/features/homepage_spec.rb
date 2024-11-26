@@ -24,7 +24,7 @@ RSpec.feature "Blood Pressure Calculator Page", type: :feature do
     # Verify submit button
     expect(page).to have_button("Calculate")
 
-    #Verify input is possible
+    #Verify input is possible and check min and max values
     systolic_field = find_field("systolic")
     expect(systolic_field[:min]).to eq("70")
     expect(systolic_field[:max]).to eq("190")
