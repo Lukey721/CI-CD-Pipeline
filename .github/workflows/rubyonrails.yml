@@ -63,7 +63,7 @@ jobs:
       env:
         RAILS_ENV: test
       run: |
-        bundle exec rspec spec/features/homepage_spec.rb
+        bundle exec rspec spec/features/homepage_spec.rb --format RspecJunitFormatter --out test-results/e2etests.xml
         mkdir -p test-results
 
     - name: Publish Test Results
