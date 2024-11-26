@@ -67,7 +67,7 @@ jobs:
         mkdir -p test-results
 
     - name: Publish Test Results
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: Capybara E2E Tests
         path: test-results/e2etests.xml
