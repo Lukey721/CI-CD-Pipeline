@@ -58,3 +58,11 @@ jobs:
 
     - name: Run Dependency Vulnerability Scanning
       run: bundle exec bundler-audit check --update
+
+    - name: Run E2E tests
+      env:
+        RAILS_ENV: test
+      run: |
+        bundle exec rspec spec/features/homepage_spec.rb
+
+
