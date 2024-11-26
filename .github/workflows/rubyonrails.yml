@@ -78,7 +78,7 @@ jobs:
     - name: Run K6 Load Test
       run: |
         docker run -i --rm \
-          -v ${{ github.workspace }}/k6tests:/tests \
+          -v ${{ github.workspace }}/K6tests:/tests \
           grafana/k6 run /tests/perf_test.js > k6report.txt
   
     - name: Upload K6 Report
