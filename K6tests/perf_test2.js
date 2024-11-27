@@ -3,9 +3,9 @@ import http from "k6/http";
 
 export let options = {
   stages: [
-    { duration: "1m", target: 20 },
-    { duration: "1m", target: 20 },
-    { duration: "1m", target: 0 },
+    { duration: "20s", target: 5 },
+    { duration: "20s", target: 5 },
+    { duration: "20s", target: 0 },
   ],
   thresholds: {
     "http_req_duration": ["p(95)<500"], // Allow 95% of requests to take less than 500ms
@@ -47,10 +47,10 @@ export default function () {
         diastolic: diastolic.toString(), // Random value for diastolic (bottom number)
       },
     });
+    
+    // Check if form submission was successful
+    check(res, { "is status 200": (r) => r.status === 200 });
 
-  // Check if form submission was successful
-  check(res, { "is status 200": (r) => r.status === 200 });
-
-  // Add a 3-second pause to simulate a user "thinking" before the next request
-  sleep(3);
+    // Add a 3-second pause to simulate a user "thinking" before the next request
+    sleep(3);
 }
