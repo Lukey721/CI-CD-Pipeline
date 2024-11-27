@@ -16,9 +16,18 @@ class BloodPressureCalculatorController < ApplicationController
     if valid_blood_pressure?(systolic, diastolic)
       # Valid input, show blood pressure category
       @category = categorize_blood_pressure(systolic, diastolic)
+      @css_class = case @category # new
+                   when 'Low blood pressure' then 'low-blood-pressure' # new
+                   when 'Ideal blood pressure' then 'ideal-blood-pressure' # new
+                   when 'Pre-high blood pressure' then 'pre-high-blood-pressure' # new
+                   when 'High blood pressure' then 'high-blood-pressure' # new
+                   end
+      @error_message = nil # new
     else
       # Invalid input, set error message
       @error_message = "Please review the measurements you have entered, The Valid Values are: Systolic (#{SYSTOLIC_MIN}-#{SYSTOLIC_MAX}), Diastolic (#{DIASTOLIC_MIN}-#{DIASTOLIC_MAX})."
+      @css_class = 'error-message' # new
+      @category = nil # new
     end
   end
 

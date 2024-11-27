@@ -17,10 +17,9 @@
   </div>
 <% end %>
 
-<% if @category.present? %>
-  <h2>Your Blood Pressure Result:</h2>
-  <p><strong><%= @category %></strong></p>
-<% elsif @error_message.present? %>
-  <h2>Error:</h2>
-  <p><strong><%= @error_message %></strong></p>
+<h2>Your Blood Pressure Result:</h2>
+<% if @error_message %>
+  <p class="error-message"><%= @error_message %></p>
+<% else %>
+  <p class="<%= @css_class %>"><%= @category %></p>
 <% end %>

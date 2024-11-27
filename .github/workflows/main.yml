@@ -3,7 +3,7 @@ name: Azure CI/CD to Staging/Development
 on:
   push:
     branches:
-      - development 
+      - development
 
 jobs:
   build-and-deploy:
