@@ -99,7 +99,14 @@ jobs:
          -t zaproxy/zap-weekly \
          zap-baseline.py -t "https://bloodpressurecicd.azurewebsites.net/" -I -r /zap/wrk/zapreport.html
 
-    # Upload ZAP report as an artifact
+    - name: List files in /zap/wrk directory (after scan)
+      run: |
+        docker run --rm --user root \
+          -v ${{ github.workspace }}:/zap/wrk/:rw \
+          -t zaproxy/zap-weekly \
+          bash -c "ls -l /zap/wrk/"
+       
+      # Upload ZAP report as an artifact
     - uses: actions/upload-artifact@v4
       name: Upload ZAP report
       with:
