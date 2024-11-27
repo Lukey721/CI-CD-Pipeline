@@ -66,21 +66,25 @@ jobs:
         bundle exec rspec spec/features/homepage_spec.rb --format RspecJunitFormatter --out test-results/e2etests.xml
         mkdir -p test-results
 
+    # Upload E2E report as an artifact
     - name: Publish Test Results
       uses: actions/upload-artifact@v4
       with:
         name: Capybara E2E Tests
         path: test-results/e2etests.xml
-
+    
+    # Pull docker image for K6
     - name: Pull Docker image for K6
       run: docker pull grafana/k6
-  
+   
+    # Run K6 script
     - name: Run K6 Load Test
       run: |
         docker run -i --rm \
           -v ${{ github.workspace }}/K6tests:/tests \
           grafana/k6 run /tests/perf_test2.js > k6report.txt
-  
+        
+    # Upload ZAP report as an artifact
     - name: Upload K6 Report
       uses: actions/upload-artifact@v4
       with:
