@@ -9,14 +9,4 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body>
-    <!-- inline JavaScript with a nonce -->
-    <script nonce="<%= csp_nonce_tag(:script) %>">
-      // Example of inline JavaScript
-     console.log("This is a safe inline script.");
-    </script>
-
-    <%= yield %>
-  </body>
 </html>
