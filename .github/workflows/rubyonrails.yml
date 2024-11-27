@@ -79,7 +79,7 @@ jobs:
       run: |
         docker run -i --rm \
           -v ${{ github.workspace }}/K6tests:/tests \
-          grafana/k6 run /tests/perf_test.js > k6report.txt
+          grafana/k6 run /tests/perf_test2.js > k6report.txt
   
     - name: Upload K6 Report
       uses: actions/upload-artifact@v4
