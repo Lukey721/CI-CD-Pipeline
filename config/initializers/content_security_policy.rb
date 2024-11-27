@@ -8,12 +8,14 @@
 
 Rails.application.configure do
   config.content_security_policy do |policy|
+    # As ZAP report recommended generate a cryptographically secure random nonce
+    nonce = SecureRandom.base64(16)
     policy.default_src :self, :https
     policy.font_src    :self, :https
     policy.img_src     :self, :https, :data
     policy.object_src  :none
-    policy.script_src  :self, :https
-    policy.style_src   :self, :https
+    policy.script_src  :self, :https, :unsafe_inline, "'nonce-#{nonce}'"
+    policy.style_src   :self, :https, :unsafe_inline, "'nonce-#{nonce}'"
     policy.report_uri '/csp-violation-report-endpoint'
 
     # If using nonces for inline scripts/styles
