@@ -91,13 +91,19 @@ jobs:
     - name: Pull Docker image for ZAP
       run: docker pull zaproxy/zap-weekly
 
+    # Ensure zapreport directory exists and set permissions
+    - name: Ensure zapreport directory exists and set permissions
+      run: |
+        mkdir -p ${{ github.workspace }}/zapreport
+        chmod -R 777 ${{ github.workspace }}/zapreport
+
     # Run ZAP baseline scan
     - name: Run baseline scan
       run: |
         docker run --rm --user root \
          -v ${{ github.workspace }}:/zap/wrk/:rw \
          -t zaproxy/zap-weekly \
-         zap-baseline.py -t "https://bloodpressurecicd.azurewebsites.net/" -I -r /zap/wrk/zapreport.html
+         zap-baseline.py -t "https://bloodpressurecicd.azurewebsites.net/" -I -r /zap/wrk/zapreport/zapreport.html
 
     - name: List files in /zap/wrk directory (after scan)
       run: |
@@ -111,6 +117,6 @@ jobs:
       name: Upload ZAP report
       with:
        name: ZAPreport
-       path: ${{ github.workspace }}/zapreport.html
+       path: ${{ github.workspace }}/zapreport/zapreport.html
 
 
