@@ -72,11 +72,6 @@ export default function () {
     const category = resultDoc.find('strong').text();  // Extract the category
     console.log(`VU ${__VU} - Blood Pressure Result: ${result} - Category: ${category}`);
 
-    // Alternatively, check for error message if form submission fails
-    check(res, {
-      "contains error message": (r) => r.body.includes("<h2>Error:</h2>"),
-    });
-
     // Add a 3-second pause to simulate a user "thinking" before the next request
     sleep(3);
 }
