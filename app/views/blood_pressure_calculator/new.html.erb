@@ -24,3 +24,9 @@
   <h2>Error:</h2>
   <p><strong><%= @error_message %></strong></p>
 <% end %>
+
+<% if @error_message.present? %>
+  <script nonce="<%= content_security_policy_nonce %>">
+    alert("Error: <%= @error_message %>");
+  </script>
+<% end %>
