@@ -45,7 +45,8 @@ export default function () {
       fields: {
         systolic: systolic.toString(),   // Random value for systolic (top number)
         diastolic: diastolic.toString(), // Random value for diastolic (bottom number)
-      },
+        commit: "Calculate",
+    },
     });
 
     // Check if form submission was successful
