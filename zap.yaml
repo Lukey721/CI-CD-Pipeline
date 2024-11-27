@@ -25,9 +25,9 @@ jobs:
   rules: []
   type: outputSummary
 - parameters:
-    reportDescription: ''
-    reportDir: /zap/wrk/
-    reportFile: zap_report.html
+    reportDescription: 'ZAP scan results for security analysis.'
+    reportDir: /zap/wrk/zapreport/
+    reportFile: zapreport.html
     reportTitle: ZAP Scanning Report
     template: traditional-html
   type: report
