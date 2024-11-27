@@ -34,8 +34,8 @@ export default function () {
     });
   
     // Generate random values for the form fields
-    const systolic = getRandomInt(70, 190);
-    const diastolic = getRandomInt(40, 100);
+    const systolic = getRandomInt(191, 200);
+    const diastolic = getRandomInt(101, 202);
   
     // Log the values being submitted by the VU
     console.log(`VU ${__VU} submitting: Systolic=${systolic}, Diastolic=${diastolic}`);
@@ -47,7 +47,7 @@ export default function () {
         diastolic: diastolic.toString(), // Random value for diastolic (bottom number)
       },
     });
-    
+
     // Check if form submission was successful
     check(res, { "is status 200": (r) => r.status === 200 });
 
