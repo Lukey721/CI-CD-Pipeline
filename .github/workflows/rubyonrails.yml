@@ -50,7 +50,14 @@ jobs:
       env:
         RAILS_ENV: test
       run: |
-        bundle exec rspec
+        bundle exec rspec spec/controllers/blood_pressure_calculator_spec.rb --format RspecJunitFormatter --out test-results/rpectests.xml
+
+      # Upload Rspec report as an artifact
+    - name: Publish Test Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: Rspec Code Coverage Report
+        path: test-results/rpectests.xml
 
     - name: Run BDD tests
       env:
