@@ -33,15 +33,18 @@ jobs:
       run: |
         chmod +x bin/*
         sed -i 's/ruby.exe/ruby/' bin/*
-    
-    - name: Clear tmp directory
-      run: bundle exec rails tmp:clear
 
     - name: Install dependencies
       env:
         RAILS_ENV: test
       run: |
         bundle install --jobs 4 --retry 3
+
+    - name: Clear tmp directory
+      run: |
+        bundle exec rails tmp:clear
+        bundle exec rails assets:clobber
+
       #simplecov will run under this also 
     - name: Run RSpec tests
       env:
