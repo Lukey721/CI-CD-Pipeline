@@ -1,9 +1,10 @@
 name: Azure CI/CD to Staging/Development
 
 on:
-  push:
-    branches:
-      - development
+  workflow_run:
+    workflows: ["Ruby on Rails CI"]
+    types:
+      - completed  # Trigger only when the tests workflow completes
 
 jobs:
   build-and-deploy:
