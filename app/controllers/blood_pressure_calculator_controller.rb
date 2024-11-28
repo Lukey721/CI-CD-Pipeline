@@ -16,7 +16,7 @@ class BloodPressureCalculatorController < ApplicationController
     if valid_blood_pressure?(systolic, diastolic)
       # Valid input, show blood pressure category
       @category = categorize_blood_pressure(systolic, diastolic)
-      @css_class = case @category # new
+      @css_class = case @category
                    when 'Low blood pressure' then 'low-blood-pressure' # new
                    when 'Ideal blood pressure' then 'ideal-blood-pressure' # new
                    when 'Pre-high blood pressure' then 'pre-high-blood-pressure' # new
@@ -29,6 +29,7 @@ class BloodPressureCalculatorController < ApplicationController
       @css_class = 'error-message' # new
       @category = nil # new
     end
+    Rails.logger.debug "Category: #{@category}, CSS Class: #{@css_class}, Error Message: #{@error_message}"
   end
 
   private

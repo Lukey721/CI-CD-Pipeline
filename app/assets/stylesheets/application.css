@@ -5,16 +5,19 @@
 .ideal-blood-pressure {
   color: green;
 }
-  
+
 .pre-high-blood-pressure {
   color: orange;
 }
-  
-.high-blood-pressure {
-  color: red;
+
+p.high-blood-pressure {
+  color: red !important;
 }
-  
+
 .error-message {
   color: red;
   font-weight: bold;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
 }
