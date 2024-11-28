@@ -19,7 +19,7 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Clear tmp directory
-      run: rails tmp:clear
+      run: bundle exec rails tmp:clear
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2 
