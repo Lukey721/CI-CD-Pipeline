@@ -33,6 +33,9 @@ jobs:
       run: |
         chmod +x bin/*
         sed -i 's/ruby.exe/ruby/' bin/*
+    
+    - name: Clear tmp directory
+      run: bundle exec rails tmp:clear
 
     - name: Install dependencies
       env:
