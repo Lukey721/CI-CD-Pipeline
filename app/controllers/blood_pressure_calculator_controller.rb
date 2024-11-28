@@ -5,6 +5,12 @@ class BloodPressureCalculatorController < ApplicationController
   SYSTOLIC_MAX = 190
   DIASTOLIC_MIN = 40
   DIASTOLIC_MAX = 100
+  CATEGORY_CSS_CLASSES = {
+    'Low blood pressure' => 'low-blood-pressure',
+    'Ideal blood pressure' => 'ideal-blood-pressure',
+    'Pre-high blood pressure' => 'pre-high-blood-pressure',
+    'High blood pressure' => 'high-blood-pressure'
+  }.freeze
 
   def new
     # Only process form data if the request is POST
@@ -16,20 +22,14 @@ class BloodPressureCalculatorController < ApplicationController
     if valid_blood_pressure?(systolic, diastolic)
       # Valid input, show blood pressure category
       @category = categorize_blood_pressure(systolic, diastolic)
-      @css_class = case @category
-                   when 'Low blood pressure' then 'low-blood-pressure' # new
-                   when 'Ideal blood pressure' then 'ideal-blood-pressure' # new
-                   when 'Pre-high blood pressure' then 'pre-high-blood-pressure' # new
-                   when 'High blood pressure' then 'high-blood-pressure' # new
-                   end
-      @error_message = nil # new
+      @css_class = CATEGORY_CSS_CLASSES[@category]
+      @error_message = nil
     else
       # Invalid input, set error message
       @error_message = "Please review the measurements you have entered, The Valid Values are: Systolic (#{SYSTOLIC_MIN}-#{SYSTOLIC_MAX}), Diastolic (#{DIASTOLIC_MIN}-#{DIASTOLIC_MAX})."
-      @css_class = 'error-message' # new
-      @category = nil # new
+      @css_class = 'error-message'
+      @category = nil
     end
-    Rails.logger.debug "Category: #{@category}, CSS Class: #{@css_class}, Error Message: #{@error_message}"
   end
 
   private
