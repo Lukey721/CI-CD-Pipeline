@@ -41,8 +41,7 @@ RSpec.feature "Blood Pressure Calculator Page", type: :feature do
     expect(page).to have_selector('h2', text: "Your Blood Pressure Result:")
   end
  
-
-  scenario "Verify result is rendered with correct css class" do
+  scenario "Verify result is rendered with correct css class - Ideal blood Pressure" do
     visit "/"
 
     # Fill in inputs
@@ -54,6 +53,62 @@ RSpec.feature "Blood Pressure Calculator Page", type: :feature do
 
     # Locate the result element (
     result_element = find(".ideal-blood-pressure") # css class
+  end
+
+  scenario "Verify result is rendered with correct css class - Low Blood Pressure" do
+    visit "/"
+
+    # Fill in inputs
+    fill_in "systolic", with: "100"
+    fill_in "diastolic", with: "40"
+
+    # Submit the form
+    click_button "Calculate"
+
+    # Locate the result element (
+    result_element = find(".low-blood-pressure") # css class
+  end
+
+  scenario "Verify result is rendered with correct css class - High Blood Pressure" do
+    visit "/"
+
+    # Fill in inputs
+    fill_in "systolic", with: "190"
+    fill_in "diastolic", with: "100"
+
+    # Submit the form
+    click_button "Calculate"
+
+    # Locate the result element (
+    result_element = find(".high-blood-pressure") # css class
+  end
+
+  scenario "Verify result is rendered with correct css class - High Blood Pressure" do
+    visit "/"
+
+    # Fill in inputs
+    fill_in "systolic", with: "190"
+    fill_in "diastolic", with: "100"
+
+    # Submit the form
+    click_button "Calculate"
+
+    # Locate the result element (
+    result_element = find(".high-blood-pressure") # css class
+  end
+
+  scenario "Verify result is rendered with correct css class - Pre-High Blood Pressure" do
+    visit "/"
+
+    # Fill in inputs
+    fill_in "systolic", with: "130"
+    fill_in "diastolic", with: "80"
+
+    # Submit the form
+    click_button "Calculate"
+
+    # Locate the result element (
+    result_element = find(".pre-high-blood-pressure") # css class
   end
 
   scenario "Verify error is rendered with correct css class" do
