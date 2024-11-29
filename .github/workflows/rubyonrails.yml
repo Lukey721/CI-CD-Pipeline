@@ -40,21 +40,6 @@ jobs:
       run: |
         bundle install --jobs 4 --retry 3
 
-      # Clear any cached assets and tmp files
-    - name: Clear tmp directory
-      run: |
-        bundle exec rails tmp:clear
-        bundle exec rails assets:clobber
-
-    - name: Check Assets Directory
-      run: |
-          ls -la public
-          [ -d public/assets ] && echo "Assets directory exists."
-
-    - name: Set Permissions
-      run: |
-          [ -d public/assets ] && chmod -R 755 public/assets
-
       # Run RSpec tests for unit tests
     - name: Run RSpec tests
       env:
