@@ -28,6 +28,12 @@ When('I fill in the blood pressure form with valid details to calculate high blo
   fill_in 'diastolic', with: '91'
 end
 
+# low blood pressure BDD test
+When('I fill in the blood pressure form with valid details to calculate low blood pressure') do
+  fill_in 'systolic', with: '80'
+  fill_in 'diastolic', with: '60'
+end
+
 When('I click the {string} button') do |button|
   click_button button
 end

@@ -32,6 +32,7 @@ jobs:
     - name: Verify Ruby Version and Permissions
       run: |
         chmod +x bin/*
+        chmod -R 755 public/assets
         sed -i 's/ruby.exe/ruby/' bin/*
 
     - name: Install dependencies
@@ -40,34 +41,39 @@ jobs:
       run: |
         bundle install --jobs 4 --retry 3
 
+      # Clear any cached assets and tmp files
     - name: Clear tmp directory
       run: |
         bundle exec rails tmp:clear
         bundle exec rails assets:clobber
 
-      #simplecov will run under this also 
+      # Run RSpec tests for unit tests
     - name: Run RSpec tests
       env:
         RAILS_ENV: test
       run: |
         bundle exec rspec spec/controllers/blood_pressure_calculator_spec.rb
-
+      
+      # Upload code coverage report as an artifact
     - name: Save Coverage Report
       uses: actions/upload-artifact@v4
       with:
         name: coverage-report
         path: coverage/
 
+      # Run BDD tests with Cucumber
     - name: Run BDD tests
       env:
         RAILS_ENV: test
       run: bin/rails cucumber  
 
+      # Code Analysis with RuboCop
     - name: Run RuboCop
       env:
         RAILS_ENV: test
-      run: bundle exec rubocop --fail-level=error # only show errors
-
+      run: bundle exec rubocop --fail-level=error # only fail if errors
+      
+    # Run Dependency Vulnerability Scanning - Bundler Audit
     - name: Run Dependency Vulnerability Scanning
       run: bundle exec bundler-audit check --update
     
@@ -118,5 +124,3 @@ jobs:
       with:
        name: ZAPreport
        path: /report/zapreport.html
-
-

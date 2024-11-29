@@ -1,6 +1,6 @@
-#this is a secondary deploy to azure web app for demenstation purposes
-#this will be the mock production env 
-#will only build and deploy when code is pushed to the master(production) branch
+# This is a secondary deploy to azure web app for demenstation purposes
+# This will be the mock production env 
+# Will only build and deploy when code is pushed to the master(production) branch
 name: Azure CI/CD to Production
 
 on:
