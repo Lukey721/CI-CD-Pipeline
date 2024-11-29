@@ -42,7 +42,7 @@ jobs:
 
     - name: Precompile assets
       run: |
-          RAILS_ENV=production bundle exec rails assets:precompile
+          bundle exec rails assets:precompile
 
     - name: Verify precompiled assets
       run: |
