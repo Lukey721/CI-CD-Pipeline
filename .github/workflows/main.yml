@@ -29,8 +29,15 @@ jobs:
         echo ${{ secrets.REGISTRY_PASSWORD }} | docker login ${{ secrets.REGISTRY_USERNAME }}.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
         docker push ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest
 
-    - name: Deploy to Azure Web App
+    - name: Deploy to Staging (Green)
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ${{ secrets.AZURE_APP_NAME }}  # Azure Web App name
-        images: ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest  # Docker image location in registry
+        app-name: ${{ secrets.AZURE_APP_NAME }}  # The green app (staging)
+        images: ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest
+
+    - name: Swap Blue Traffic to Green
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ secrets.AZURE_APP_NAME_SECOND_DEPLOY }}  # The blue app (production/live)
+        images: ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest
+        # This will now swap the traffic from the blue to the green environment.
