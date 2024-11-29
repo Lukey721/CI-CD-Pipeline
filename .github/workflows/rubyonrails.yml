@@ -52,12 +52,19 @@ jobs:
       run: |
         bundle exec rspec spec/controllers/blood_pressure_calculator_spec.rb --format RspecJunitFormatter --out test-results/rpectests.xml
 
+    - name: Save Coverage Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: coverage/
+
       # Upload Rspec report as an artifact
     - name: Publish Test Results
       uses: actions/upload-artifact@v4
       with:
         name: Rspec Code Coverage Report
         path: test-results/rpectests.xml
+
 
     - name: Run BDD tests
       env:
