@@ -64,7 +64,7 @@ Capybara.register_driver :selenium do |app|
     app,
     browser: :chrome,
     capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-      "goog:chromeOptions" => { args: %w[headless disable-gpu no-sandbox] }
+      "goog:chromeOptions" => { args: %w[disable-gpu no-sandbox] }
     )
   )
 end
