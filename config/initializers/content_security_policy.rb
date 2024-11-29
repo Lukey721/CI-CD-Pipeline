@@ -8,12 +8,12 @@
 
 Rails.application.configure do
   config.content_security_policy do |policy|
-    policy.default_src :self, :https
-    policy.font_src    :self, :https, :data
-    policy.img_src     :self, :https, :data
-    policy.object_src  :none
-    policy.script_src  :self, :https
-    policy.style_src   :self, :https
+    policy.default_src :self
+    policy.script_src :self
+    policy.style_src :self
+    policy.img_src :self, :data
+    policy.frame_src :none
+    policy.object_src :none
     # Specify URI for violation reports
     policy.report_uri '/csp-violation-report-endpoint'
   end
