@@ -40,6 +40,17 @@ jobs:
       run: |
         bundle install --jobs 4 --retry 3
 
+    - name: Precompile assets
+      run: |
+          RAILS_ENV=production bundle exec rails assets:precompile
+
+    - name: Verify precompiled assets
+      run: |
+          echo "Checking public/assets directory"
+          ls -la public/assets
+          echo "Listing all precompiled files:"
+          find public/assets -type f
+
       # Run RSpec tests for unit tests
     - name: Run RSpec tests
       env:
