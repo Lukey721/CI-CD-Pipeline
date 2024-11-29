@@ -26,3 +26,9 @@ Feature: Blood Pressure Calculator
     When I fill in the blood pressure form with valid details to calculate high blood pressure
     And I click the "Calculate" button
     Then I should see "High blood pressure"
+
+  Scenario: Successful low blood pressure calculation
+    Given I am on the calculator page
+    When I fill in the blood pressure form with valid details to calculate low blood pressure
+    And I click the "Calculate" button
+    Then I should see "Low blood pressure"

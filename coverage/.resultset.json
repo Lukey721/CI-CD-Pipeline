@@ -19,28 +19,28 @@
           null,
           1,
           null,
-          7,
+          14,
           null,
-          7,
-          7,
+          6,
+          6,
           null,
-          7,
+          6,
           null,
           5,
           5,
           5,
           null,
           null,
-          2,
-          2,
-          2,
+          1,
+          1,
+          1,
           null,
           null,
           null,
           1,
           null,
           1,
-          7,
+          6,
           null,
           null,
           1,
@@ -67,9 +67,9 @@
       }
     },
 <<<<<<< HEAD
-    "timestamp": 1732811712
+    "timestamp": 1732897714
 =======
-    "timestamp": 1732892194
->>>>>>> development
+    "timestamp": 1732896846
+>>>>>>> 1b6177fbdb5424be944fb4cb45b19285ac840a6d
   }
 }
