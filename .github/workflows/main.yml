@@ -28,7 +28,7 @@ jobs:
         docker build -t ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest .
         echo ${{ secrets.REGISTRY_PASSWORD }} | docker login ${{ secrets.REGISTRY_USERNAME }}.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
         docker push ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest
-
+      #Deployment Strategy Blue Green Deployment
     - name: Deploy to Staging (Green)
       uses: azure/webapps-deploy@v2
       with:
