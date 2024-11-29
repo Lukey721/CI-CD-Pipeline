@@ -32,7 +32,6 @@ jobs:
     - name: Verify Ruby Version and Permissions
       run: |
         chmod +x bin/*
-        chmod -R 755 public/assets
         sed -i 's/ruby.exe/ruby/' bin/*
 
     - name: Install dependencies
@@ -46,6 +45,15 @@ jobs:
       run: |
         bundle exec rails tmp:clear
         bundle exec rails assets:clobber
+
+    - name: Check Assets Directory
+      run: |
+          ls -la public
+          [ -d public/assets ] && echo "Assets directory exists."
+
+    - name: Set Permissions
+      run: |
+          [ -d public/assets ] && chmod -R 755 public/assets
 
       # Run RSpec tests for unit tests
     - name: Run RSpec tests
