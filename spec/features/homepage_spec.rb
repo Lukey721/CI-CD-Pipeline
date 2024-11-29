@@ -40,6 +40,7 @@ RSpec.feature "Blood Pressure Calculator Page", type: :feature do
     # Verify header is present "Your Blood Pressure Result:"
     expect(page).to have_selector('h2', text: "Your Blood Pressure Result:")
   end
+ 
 
   scenario "Verify result is rendered with correct css class" do
     visit "/"
