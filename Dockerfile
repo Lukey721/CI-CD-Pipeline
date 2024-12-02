@@ -15,7 +15,7 @@ WORKDIR /app
 
 # Install Bundler and Rails dependencies
 COPY Gemfile Gemfile.lock ./
-RUN bundle install
+RUN bundle install --without development test
 
 # Copy the rest of the application code
 COPY . ./

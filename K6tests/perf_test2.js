@@ -70,8 +70,7 @@ export default function () {
     const resultDoc = parseHTML(res.body);
     const result = resultDoc.find('h2').text();  // Extract the result section header
     const category = resultDoc.find('strong').text();  // Extract the category
-    // console.log(`VU ${__VU} - Blood Pressure Result: ${result} - Category: ${category}`);
-    console.log(`VU ${__VU} request duration: ${res.timings.duration}ms`);
+    console.log(`VU ${__VU} - Blood Pressure Result: ${result} - Category: ${category}`);
 
     // Add a 3-second pause to simulate a user "thinking" before the next request
     sleep(3);

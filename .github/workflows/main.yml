@@ -29,7 +29,7 @@ jobs:
         echo ${{ secrets.REGISTRY_PASSWORD }} | docker login ${{ secrets.REGISTRY_USERNAME }}.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
         docker push ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest
       
-      #Deployment Strategy Blue Green Deployment
+    #Deployment Strategy Blue Green Deployment
     - name: Deploy to Staging (Green)
       uses: azure/webapps-deploy@v2
       with:
@@ -69,9 +69,10 @@ jobs:
        name: ZAPreport
        path: /report/zapreport.html
 
+    #Deploy to blue/production
     - name: Swap Blue Traffic to Green
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ secrets.AZURE_APP_NAME_SECOND_DEPLOY }}  # The blue app (production/live)
         images: ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest
-        # This will now swap the traffic from the blue to the green environment.
+        
