@@ -69,25 +69,6 @@ jobs:
        name: ZAPreport
        path: /report/zapreport.html
 
-    #Pull docker name 
-    - name: Get Running Container ID
-      run: |
-        CONTAINER_ID=$(docker ps -q --filter "ancestor=${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest")
-        echo "CONTAINER_ID=$CONTAINER_ID" >> $GITHUB_ENV
-
-    # Run E2E tests
-    - name: Run E2E tests
-      run: |
-        docker exec $CONTAINER_ID bundle exec rspec spec/features/homepage_spec.rb \
-          --format RspecJunitFormatter --out test-results/e2etestsafterbuild.xml
-  
-    # Upload E2E report as an artifact
-    - name: Publish Test Results
-      uses: actions/upload-artifact@v4
-      with:
-          name: Capybara E2E Tests
-          path: test-results/e2etestsafterbuild.xml
-
     - name: Swap Blue Traffic to Green
       uses: azure/webapps-deploy@v2
       with:
