@@ -80,7 +80,7 @@ jobs:
     # Run Dependency Vulnerability Scanning - Bundler Audit
     - name: Run Dependency Vulnerability Scanning
       run: bundle exec bundler-audit check --update
-    
+
     # Run E2E tests
     - name: Run E2E tests
       env:
