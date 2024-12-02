@@ -28,6 +28,7 @@ jobs:
         docker build -t ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest .
         echo ${{ secrets.REGISTRY_PASSWORD }} | docker login ${{ secrets.REGISTRY_USERNAME }}.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
         docker push ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest
+      
       #Deployment Strategy Blue Green Deployment
     - name: Deploy to Staging (Green)
       uses: azure/webapps-deploy@v2
@@ -37,18 +38,15 @@ jobs:
         
       # Run E2E tests
     - name: Run E2E tests
-      env:
-          RAILS_ENV: test
       run: |
-          bundle exec rspec spec/features/homepage_spec.rb --format RspecJunitFormatter --out test-results/e2etests.xml
-          mkdir -p test-results
+          bundle exec rspec spec/features/homepage_spec.rb --format RspecJunitFormatter --out test-results/e2etestsafterbuild.xml
   
     # Upload E2E report as an artifact
     - name: Publish Test Results
       uses: actions/upload-artifact@v4
       with:
           name: Capybara E2E Tests
-          path: test-results/e2etests.xml
+          path: test-results/e2etestsafterbuild.xml
 
     - name: Swap Blue Traffic to Green
       uses: azure/webapps-deploy@v2
