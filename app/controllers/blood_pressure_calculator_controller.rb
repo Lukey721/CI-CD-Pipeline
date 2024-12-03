@@ -12,8 +12,6 @@ class BloodPressureCalculatorController < ApplicationController
     'High blood pressure' => 'high-blood-pressure'
   }.freeze
 
-  before_action :track_homepage_view, only: [:new], unless: -> { Rails.env.test? }
-
   def new
     # Only process form data if the request is POST
     return unless request.post?
@@ -32,11 +30,6 @@ class BloodPressureCalculatorController < ApplicationController
       @css_class = 'error-message'
       @category = nil
     end
-  end
-
-  def trackview
-    # Track page view
-    ApplicationInsights.track_page_view('Blood Pressure Calculator Homepage')
   end
 
   private
