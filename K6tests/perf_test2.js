@@ -9,7 +9,7 @@ export let options = {
     { duration: "20s", target: 0 },
   ],
   thresholds: {
-    "http_req_duration": ["p(90)<500"], // Allow 95% of requests to take less than 500ms
+    "http_req_duration": ["p(90)<200"], // Allow 95% of requests to take less than 500ms
   },
 };
 
