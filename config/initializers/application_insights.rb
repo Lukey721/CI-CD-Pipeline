@@ -1,3 +1,6 @@
-require 'application_insights'
+# frozen_string_literal: true
 
-ApplicationInsights = ApplicationInsights::TelemetryClient.new('3e1c8387-ebe6-432f-bdf3-af4ef9658d98')
+unless Rails.env.test?
+  require 'application_insights'
+  ApplicationInsights = ApplicationInsights::TelemetryClient.new('3e1c8387-ebe6-432f-bdf3-af4ef9658d98')
+end
