@@ -34,12 +34,12 @@ class BloodPressureCalculatorController < ApplicationController
     end
   end
 
+  private
+
   def trackview
     # Track page view
     ApplicationInsights.track_page_view('Blood Pressure Calculator Homepage')
   end
-
-  private
 
   def valid_blood_pressure?(systolic, diastolic)
     systolic.between?(SYSTOLIC_MIN, SYSTOLIC_MAX) && diastolic.between?(DIASTOLIC_MIN, DIASTOLIC_MAX)
