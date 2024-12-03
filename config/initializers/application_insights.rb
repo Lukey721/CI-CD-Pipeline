@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'application_insights'
 
 ApplicationInsights::TelemetryClient.new(
