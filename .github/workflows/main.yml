@@ -70,10 +70,10 @@ jobs:
        name: ZAPreport
        path: /report/zapreport.html
 
-    #Deploy to blue/production
-    - name: Swap Blue Traffic to Green
+    #Deploy to staging to production slot - Prod will not be staging
+    - name: Swap Staging to Blue (Production)
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ${{ secrets.AZURE_APP_NAME_SECOND_DEPLOY }}  # The blue app (production/live)
-        images: ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest
-        
+        app-name: ${{ secrets.AZURE_APP_NAME }}  # The green app (staging)
+        slot-name: staging
+        action: swap
