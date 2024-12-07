@@ -6,6 +6,7 @@ RUN apt-get update -qq && apt-get install -y \
   yarn \
   build-essential \
   libpq-dev \
+  chromium-browser \
   chromium-driver \
   libnss3 libgconf-2-4\
   && rm -rf /var/lib/apt/lists/*
