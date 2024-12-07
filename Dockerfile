@@ -2,13 +2,13 @@ FROM ruby:3.2.2
 
 # Install dependencies
 RUN apt-get update -qq && apt-get install -y \
+  snapd \
   nodejs \
   yarn \
   build-essential \
   libpq-dev \
-  chromium \
-  chromium-driver \
   libnss3 libgconf-2-4\
+  && snap install chromium \
   && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory in the container
