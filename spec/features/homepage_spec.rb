@@ -53,7 +53,7 @@ RSpec.feature "Blood Pressure Calculator Page", type: :feature do
     click_button "Calculate"
 
     # Locate the result element (
-    result_element = find(".ideal-blood-pressure") # css class
+    result_element = find(".pre-high-blood-pressure") # css class
   end
 
   scenario "Verify result is rendered with correct css class - Low Blood Pressure" do
@@ -84,18 +84,18 @@ RSpec.feature "Blood Pressure Calculator Page", type: :feature do
     result_element = find(".high-blood-pressure") # css class
   end
 
-  scenario "Verify result is rendered with correct css class - High Blood Pressure" do
+  scenario "Verify result is rendered with correct css class - ideal Blood Pressure" do
     visit "/"
 
     # Fill in inputs
-    fill_in "systolic", with: "190"
-    fill_in "diastolic", with: "100"
+    fill_in "systolic", with: "119"
+    fill_in "diastolic", with: "79"
 
     # Submit the form
     click_button "Calculate"
 
     # Locate the result element (
-    result_element = find(".high-blood-pressure") # css class
+    result_element = find(".ideal-blood-pressure") # css class
   end
 
   scenario "Verify result is rendered with correct css class - Pre-High Blood Pressure" do
