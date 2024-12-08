@@ -41,9 +41,9 @@ class BloodPressureCalculatorController < ApplicationController
   def categorize_blood_pressure(systolic, diastolic)
     if systolic < 90 || diastolic < 60
       'Low blood pressure'
-    elsif systolic.between?(90, 120) && diastolic.between?(60, 80)
+    elsif systolic.between?(90, 119) && diastolic.between?(60, 79)
       'Ideal blood pressure'
-    elsif systolic.between?(120, 139) && diastolic.between?(80, 89)
+    elsif systolic.between?(120, 139) || diastolic.between?(80, 89)
       'Pre-high blood pressure'
     else
       'High blood pressure'

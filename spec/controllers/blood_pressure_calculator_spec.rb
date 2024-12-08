@@ -62,5 +62,12 @@ RSpec.describe BloodPressureCalculatorController, type: :controller do
       expect(assigns(:error_message)).to eq('Please review the measurements you have entered, The Valid Values are: Systolic (70-190), Diastolic (40-100).')
       puts "Test 7 - Error Message: Result from test is #{assigns(:error_message)}"
     end
+
+    it 'Check Pre-High edge cases for OR condition' do
+      post :new, params: { systolic: 130, diastolic: 75 }
+      expect(response).to be_successful
+      expect(assigns(:category)).to eq('Pre-high blood pressure')
+      puts "Test 8 - Pre-High Blood Pressure: Result from test is #{assigns(:category)}"
   end
+ end
 end
