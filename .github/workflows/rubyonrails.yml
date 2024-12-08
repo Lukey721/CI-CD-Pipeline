@@ -89,18 +89,3 @@ jobs:
     # Run Dependency Vulnerability Scanning - Bundler Audit
     - name: Run Dependency Vulnerability Scanning
       run: bundle exec bundler-audit check --update
-
-    # Run E2E tests
-    - name: Run E2E tests
-      env:
-        RAILS_ENV: test
-      run: |
-        bundle exec rspec spec/features/homepage_spec.rb --format RspecJunitFormatter --out test-results/e2etests.xml
-        mkdir -p test-results
-
-    # Upload E2E report as an artifact
-    - name: Publish Test Results
-      uses: actions/upload-artifact@v4
-      with:
-        name: Capybara E2E Tests
-        path: test-results/e2etests.xml

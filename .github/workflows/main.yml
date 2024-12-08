@@ -37,14 +37,15 @@ jobs:
         slot-name: staging
         images: ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest
 
-    # Set up ruby
-    - name: Set up Ruby
+    # Set up ruby for E2E tests
+    - name: Set up Ruby for E2E tests
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.2.2 # The Ruby version 
         bundler-cache: true # Enable bundler caching for faster builds
-
-    - name: Install dependencies
+    
+    # Install Dependencies for E2E tests
+    - name: Install dependencies for E2E tests
       env:
         RAILS_ENV: test
       run: |
