@@ -68,6 +68,6 @@ RSpec.describe BloodPressureCalculatorController, type: :controller do
       expect(response).to be_successful
       expect(assigns(:category)).to eq('Pre-high blood pressure')
       puts "Test 8 - Pre-High Blood Pressure: Result from test is #{assigns(:category)}"
+    end
   end
- end
 end
