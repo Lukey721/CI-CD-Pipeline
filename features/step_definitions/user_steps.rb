@@ -6,8 +6,8 @@ end
 
 # ideal blood pressure BDD test
 When('I fill in the blood pressure form with valid details') do
-  fill_in 'systolic', with: '120'
-  fill_in 'diastolic', with: '80'
+  fill_in 'systolic', with: '90'
+  fill_in 'diastolic', with: '60'
 end
 
 # Invalid BDD test
