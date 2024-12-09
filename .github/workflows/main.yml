@@ -99,7 +99,7 @@ jobs:
        name: ZAPreport
        path: /report/zapreport.html
 
-     # Deploy to staging to production slot - Prod will not be staging
+     # Deploy to staging to production slot - Prod will now be staging
     - name: Swap Staging Slot to Production
       uses: azure/cli@v1
       with:
