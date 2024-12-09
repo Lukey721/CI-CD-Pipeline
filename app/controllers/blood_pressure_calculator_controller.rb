@@ -13,7 +13,7 @@ class BloodPressureCalculatorController < ApplicationController
   }.freeze
 
   def new
-    # Only process form data if the request is POST
+    # Only process form data if the request is POST.
     return unless request.post?
 
     systolic = params[:systolic].to_i
