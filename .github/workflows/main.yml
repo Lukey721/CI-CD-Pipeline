@@ -33,7 +33,7 @@ jobs:
     - name: Deploy to Staging (Green)
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ${{ secrets.AZURE_APP_NAME }}  # The green app (staging)
+        app-name: ${{ secrets.AZURE_APP_NAME }}  # The green app (staging).
         slot-name: staging
         images: ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/blood-pressure-app:latest
 
