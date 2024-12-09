@@ -90,7 +90,7 @@ jobs:
 
     # Run ZAP baseline scan
     - name: Run baseline scan
-      run: docker run -v /report:/zap/wrk/:rw --user root -t zaproxy/zap-weekly zap-baseline.py -t "https://bloodpressurecicd.azurewebsites.net/" -I -r zapreport.html
+      run: docker run -v /report:/zap/wrk/:rw --user root -t zaproxy/zap-weekly zap-baseline.py -t "https://bloodpressurecicd-staging.azurewebsites.net/" -I -r zapreport.html
        
     # Upload ZAP report as an artifact
     - uses: actions/upload-artifact@v4

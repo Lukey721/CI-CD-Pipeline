@@ -24,7 +24,7 @@ function getRandomInt(min, max) {
 // Main test function
 export default function () {
     // Perform initial GET request to get the form and CSRF token
-    let res = http.get("https://bloodpressurecicd.azurewebsites.net/", { responseType: "text" });
+    let res = http.get("https://bloodpressurecicd-staging.azurewebsites.net/", { responseType: "text" });
   
     // Check if GET request was successful
     check(res, { "status is 200": (r) => r.status === 200 });
@@ -53,7 +53,7 @@ export default function () {
       authenticity_token: csrfToken,  // CSRF token
     };
 
-    res = http.post("https://bloodpressurecicd.azurewebsites.net/", formData, {
+    res = http.post("https://bloodpressurecicd-staging.azurewebsites.net/", formData, {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     });
 
