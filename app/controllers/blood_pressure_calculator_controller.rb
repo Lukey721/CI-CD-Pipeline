@@ -25,7 +25,7 @@ class BloodPressureCalculatorController < ApplicationController
       @css_class = CATEGORY_CSS_CLASSES[@category]
       @error_message = nil
     else
-      # Invalid input, set error message
+      # Invalid input, set error message.
       @error_message = "Please review the measurements you have entered, The Valid Values are: Systolic (#{SYSTOLIC_MIN}-#{SYSTOLIC_MAX}), Diastolic (#{DIASTOLIC_MIN}-#{DIASTOLIC_MAX})."
       @css_class = 'error-message'
       @category = nil
