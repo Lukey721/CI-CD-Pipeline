@@ -9,7 +9,7 @@ services:
     environment:
       - RAILS_ENV=production  # Set environment to production
     secrets:
-      - rails_master_key=39887745612faa284de06bfab65c518e  # Master key for Rails secrets (use an environment variable or secret manager in a real prod setup)
-      - rails_secret_key_base=75e44075db00f5edff48e22eac2930ca6f802b3c3429e277fbbe33840eed1aed58886fea6be4daba78f5a63b2ad4e06042815e6b05b396311cd3cd67a5392f34
+      - rails_master_key= $masterkey
+      - rails_secret_key_base= $mastersecret
     ports:
       - "3000:3000"  # Map container port 3000 to host port 3000
