@@ -89,3 +89,7 @@ jobs:
     # Run Dependency Vulnerability Scanning - Bundler Audit
     - name: Run Dependency Vulnerability Scanning
       run: bundle exec bundler-audit check --update
+
+    # Run Brakeman Security Scanner
+    - name: Run Brakeman Security Scanner
+      run: bundle exec brakeman -z

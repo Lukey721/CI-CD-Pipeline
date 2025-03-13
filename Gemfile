@@ -59,6 +59,7 @@ group :development, :test do
   gem 'rubocop-performance', '~> 1.23'
   gem 'rubocop-rake', require: false
   gem 'rubocop-rspec', require: false
+  gem 'brakeman', require: false
 end
 
 group :development do

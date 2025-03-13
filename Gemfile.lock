@@ -400,6 +400,7 @@ DEPENDENCIES
   actionpack (~> 7.1.5.1)
   application_insights
   bootsnap
+  brakeman
   bundler-audit
   capybara
   cucumber-rails
