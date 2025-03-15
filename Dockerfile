@@ -21,7 +21,8 @@ RUN bundle install --without development test
 COPY . ./
 
 # Set environment variables (adjust RAILS_MASTER_KEY if necessary)
-
+ARG RAILS_MASTER_KEY
+ENV RAILS_MASTER_KEY=$RAILS_MASTER_KEY
 
 # Tell Rails to serve static files directly from the public directory
 ENV RAILS_SERVE_STATIC_FILES=true

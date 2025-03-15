@@ -37,8 +37,5 @@
 .env
 
 # Ignore dockerfiles for the moment
-Dockerfile
 docker-compose.yml
 
-# Ignore workflow
-Rails_CD.yml
