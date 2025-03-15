@@ -1,5 +1,5 @@
 # Ruby setup
-FROM ruby:3.2.2-slim
+FROM ruby:3.2.2
 
 # Install dependencies
 RUN apt-get update -qq && apt-get install -y \
