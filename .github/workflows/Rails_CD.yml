@@ -30,7 +30,7 @@ jobs:
         echo ${{ secrets.TERRAFORM_ACR_REGISTRY_PASSWORD }} | docker login ${{ secrets.TERRAFORM_ACR_REGISTRY_USERNAME }}.azurecr.io -u ${{ secrets.TERRAFORM_ACR_REGISTRY_USERNAME }} --password-stdin
         docker push ${{ secrets.TERRAFORM_ACR_REGISTRY_USERNAME }}.azurecr.io/${{ secrets.TERRAFORM_CONTAINER_NAME }}:latest
       
-    # Deploy to Staging
+    # Deploy to Staging site
     - name: Deploy to Staging 
       uses: azure/webapps-deploy@v2
       with:
