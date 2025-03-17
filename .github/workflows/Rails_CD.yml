@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: ["Ruby on Rails CI"]
     types:
-      - completed  # Trigger only when the tests workflow completes
+      - completed  # Trigger only when the tests workflow completes and passes
 
 jobs:
   build-and-deploy:
@@ -26,12 +26,12 @@ jobs:
     - name: Build and push Docker image to registry
       run: |
         docker build --build-arg RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }} \
-         -t ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/${{ secrets.CONTAINER_NAME }}:latest .
-        echo ${{ secrets.REGISTRY_PASSWORD }} | docker login ${{ secrets.REGISTRY_USERNAME }}.azurecr.io -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
-        docker push ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/${{ secrets.CONTAINER_NAME }}:latest
+         -t ${{ secrets.TERRAFORM_ACR_REGISTRY_USERNAME }}.azurecr.io/${{ secrets.CONTAINER_NAME }}:latest .
+        echo ${{ secrets.TERRAFORM_ACR_REGISTRY_PASSWORD }} | docker login ${{ secrets.TERRAFORM_ACR_REGISTRY_USERNAME }}.azurecr.io -u ${{ secrets.TERRAFORM_ACR_REGISTRY_USERNAME }} --password-stdin
+        docker push ${{ secrets.TERRAFORM_ACR_REGISTRY_USERNAME }}.azurecr.io/${{ secrets.CONTAINER_NAME }}:latest
       
     - name: Deploy to Staging 
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ${{ secrets.AZURE_APP_NAME }}
-        images: ${{ secrets.REGISTRY_USERNAME }}.azurecr.io/${{ secrets.CONTAINER_NAME }}:latest
+        app-name: ${{ secrets.TERRAFORM_AZURE_APP_NAME }}
+        images: ${{ secrets.TERRAFORM_ACR_REGISTRY_USERNAME }}.azurecr.io/${{ secrets.CONTAINER_NAME }}:latest
