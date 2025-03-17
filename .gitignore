@@ -39,3 +39,9 @@
 # Ignore dockerfiles for the moment
 docker-compose.yml
 
+# Ignore Local .terraform directories
+.terraform/
+
+# Terraform state files (sensitive data)
+*.tfstate
+*.tfstate.backup

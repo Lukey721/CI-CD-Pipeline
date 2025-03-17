@@ -35,3 +35,8 @@ config/master.key
 db/*.sqlite3
 LICENSE
 README.md
+# Ignore Terraform files as both Docker and Terraform are in the same repo
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfplan
