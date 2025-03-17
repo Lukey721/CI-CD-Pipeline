@@ -34,5 +34,5 @@ jobs:
     - name: Deploy to Staging 
       uses: azure/webapps-deploy@v2
       with:
-        app-name: ${{ secrets.TERRAFORM_AZURE_APP_NAME }}
+        app-name: terraform-ruby-web-app
         images: ${{ secrets.TERRAFORM_ACR_REGISTRY_USERNAME }}.azurecr.io/${{ secrets.TERRAFORM_CONTAINER_NAME }}:latest
