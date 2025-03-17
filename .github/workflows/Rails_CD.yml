@@ -30,17 +30,17 @@ jobs:
 
     # Initialise Terraform
     - name: Terraform Init
-      working-directory: ./terraform
+      working-directory: ./Terraform
       run: terraform init
 
     # Run Terraform Plan
     - name: Terraform Plan
-      working-directory: ./terraform
+      working-directory: ./Terraform
       run: terraform plan -out=tfplan
 
     # Terraform Apply - Auto approve
     - name: Terraform Apply
-      working-directory: ./terraform
+      working-directory: ./Terraform
       run: terraform apply -auto-approve tfplan
 
     # Set up Docker Build
