@@ -10,19 +10,44 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-
+    
+    # Pull code from Giuthub Repo
     steps:
     - name: Checkout code
       uses: actions/checkout@v3 
 
+    # Login to Azure
     - name: Log in to Azure
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+    # Setup Terraform
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+       terraform_version: '1.7.0'  # Specify the version you need
+
+    # Initialise Terraform
+    - name: Terraform Init
+      working-directory: ./terraform
+      run: terraform init
+
+    # Run Terraform Plan
+    - name: Terraform Plan
+      working-directory: ./terraform
+      run: terraform plan -out=tfplan
+
+    # Terraform Apply - Auto approve
+    - name: Terraform Apply
+      working-directory: ./terraform
+      run: terraform apply -auto-approve tfplan
+
+    # Set up Docker Build
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2 
-
+    
+    # Build and push Docker image to acr
     - name: Build and push Docker image to registry
       run: |
         docker build --build-arg RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }} \
@@ -34,5 +59,7 @@ jobs:
     - name: Deploy to Staging 
       uses: azure/webapps-deploy@v2
       with:
-        app-name: terraform-ruby-web-app
+        app-name: ${{ secrets.TERRAFORM_AZURE_APP_NAME }}
         images: ${{ secrets.TERRAFORM_ACR_REGISTRY_USERNAME }}.azurecr.io/${{ secrets.TERRAFORM_CONTAINER_NAME }}:latest
+
+    # Deploy to Development site
