@@ -17,7 +17,7 @@ jobs:
         ARM_SUBSCRIPTION_ID: ${{ fromJson(secrets.AZURE_CREDENTIALS).subscriptionId }}
         ARM_TENANT_ID: ${{ fromJson(secrets.AZURE_CREDENTIALS).tenantId }}
     
-    # Pull code from Giuthub Repo
+    # Pull code from Github Repo
     steps:
     - name: Checkout code
       uses: actions/checkout@v3 
