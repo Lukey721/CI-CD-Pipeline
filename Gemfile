@@ -51,6 +51,7 @@ gem 'bootsnap', require: false
 gem 'application_insights'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'brakeman', require: false
   gem 'bundler-audit'
   gem 'debug'
   gem 'rspec-rails', '~> 6.0'
@@ -59,7 +60,6 @@ group :development, :test do
   gem 'rubocop-performance', '~> 1.23'
   gem 'rubocop-rake', require: false
   gem 'rubocop-rspec', require: false
-  gem 'brakeman', require: false
 end
 
 group :development do

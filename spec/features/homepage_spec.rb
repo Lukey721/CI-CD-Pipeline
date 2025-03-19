@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# This is for E2E tests to be implemented
 RSpec.feature "Homepage", type: :feature do
   scenario "User visits the homepage" do
     # navigate to root page

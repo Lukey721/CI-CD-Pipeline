@@ -26,6 +26,7 @@ jobs:
         ruby-version: 3.2.2 # The Ruby version 
         bundler-cache: true # Enable bundler caching for faster builds
     
+    #Allow access to bin directory for BDD tests
     - name: Verify Ruby Version and Permissions
       run: |
         chmod +x bin/*
